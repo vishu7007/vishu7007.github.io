@@ -9,10 +9,11 @@ var wind = document.querySelector('#wind')
 var locationIcon=document.querySelector(".location")
 
 
-let cityName=""
+var cityName = inputval;
+console.log(cityName);
 let latitude=0.0
 let longitude=0.0
-
+document.getElementById('gmap_canvass').src =`https://maps.google.com/maps?q=${cityName}&t=&z=13&ie=UTF8&iwloc=&output=embed`
 inputval.addEventListener("keyup",function(event){
     if(event.keyCode===13){
         event.preventDefault();
@@ -69,7 +70,7 @@ function getSearchWeather(cityName){
             temp.innerHTML = `Temperature: ${ convertion(tempature)} C`
             description.innerHTML = `Conditions: ${descrip}`
             wind.innerHTML = `Wind Speed: ${wndspd} km/h`
-    
+            document.getElementById('gmap_canvass').src =`https://maps.google.com/maps?q=${cityName}&t=&z=13&ie=UTF8&iwloc=&output=embed`
         })
         .catch(err => alert('You entered Wrong city name'))
 
